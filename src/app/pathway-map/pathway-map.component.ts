@@ -42,7 +42,7 @@ export class PathwayMap {
   }
 
   private getNewPathway(changes : SimpleChanges) {
-    return changes['pathway'].currentValue ? changes['pathway'].currentValue.fileContent : data;
+    return changes['pathway'].currentValue ? changes['pathway'].currentValue.mapContent : data;
   }
 
   private loadMap(changes : SimpleChanges) {
