@@ -1,0 +1,19 @@
+.button.flat {
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  background-color: transparent;
+  display: inline-block;
+  height: 3.6rem;
+  line-height: 3.6rem;
+  padding: 0 2rem;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: rgba(0,0,0,.1);
+}
+
+.button:focus {
+  outline: none;
+}

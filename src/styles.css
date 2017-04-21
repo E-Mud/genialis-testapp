@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "styles/button.css";
+
+html, body {
+  height: 100%;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+  margin: 0;
+  background-color: #E0E0E0;
+}
