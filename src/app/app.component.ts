@@ -14,15 +14,20 @@ import { Pathway } from './pathway/pathway';
   `],
   template: `
     <div class="app-component" fxLayout="column">
-      <app-bar (onPathwayUploaded)="changePathway($event)"></app-bar>
-      <pathway-map [pathway]="currentPathway" fxFlex></pathway-map>
+      <app-bar (onPathwayUploaded)="changePathway($event)" (onColorToggled)="toggleColor()"></app-bar>
+      <pathway-map [pathway]="currentPathway" [reactionColor]="currentColor" fxFlex></pathway-map>
     </div>
   `
 })
 export class AppComponent {
   currentPathway : Pathway;
+  currentColor : string = 'default';
 
   changePathway(pathway) {
     this.currentPathway = pathway;
+  }
+
+  toggleColor() {
+    this.currentColor = this.currentColor === 'default' ? 'green' : 'default'
   }
 }

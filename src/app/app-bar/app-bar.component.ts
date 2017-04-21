@@ -19,12 +19,16 @@ import { Pathway } from '../pathway/pathway';
       <div class="flat button" (click)="uploadFile()">
         UPLOAD
       </div>
+      <div class="flat button" (click)="switchColor()">
+        SWITCH COLOR
+      </div>
     </div>
   `
 })
 export class AppBar {
   @ViewChild('fileinput') fileInput;
   @Output() onPathwayUploaded = new EventEmitter<Pathway>()
+  @Output() onColorToggled = new EventEmitter<void>()
 
   fileChange(event) {
     let fileList: FileList = event.target.files;
@@ -38,5 +42,9 @@ export class AppBar {
 
   uploadFile() {
     this.fileInput.nativeElement.click();
+  }
+
+  switchColor() {
+    this.onColorToggled.emit();
   }
 }
