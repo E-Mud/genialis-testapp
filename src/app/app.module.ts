@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { PathwayMap } from './pathway-map/pathway-map.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PathwayMap
   ],
   imports: [
     BrowserModule,
