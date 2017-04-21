@@ -1,9 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+
+import { Builder } from 'escher-vis'
+
+import * as data from './e_coli.iJO1366.central_metabolism.json'
 
 @Component({
   selector: 'app-root',
-  template: `<h1>Hello {{title}}</h1>`
+  template: `
+    <div>
+      <div #mapcontainer></div>
+    </div>
+  `
 })
 export class AppComponent {
-  title = 'Genialis!';
+  @ViewChild('mapcontainer') mapContainer;
+
+  ngAfterViewInit(){
+    var options = {
+      menu: 'zoom',
+      fill_screen: true
+    };
+
+    Builder(data, null, null, this.mapContainer.naiveElement, options);
+  }
 }
