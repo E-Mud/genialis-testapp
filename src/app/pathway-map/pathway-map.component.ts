@@ -2,8 +2,6 @@ import { Component, ViewChild, Input, SimpleChanges, SimpleChange } from '@angul
 
 import { Builder } from 'escher-vis'
 
-import * as data from './e_coli.iJO1366.central_metabolism.json'
-
 @Component({
   selector: 'pathway-map',
   styles: [`
@@ -41,12 +39,8 @@ export class PathwayMap {
     return !!changes['pathway']
   }
 
-  private getNewPathway(changes : SimpleChanges) {
-    return changes['pathway'].currentValue ? changes['pathway'].currentValue.mapContent : data;
-  }
-
   private loadMap(changes : SimpleChanges) {
-    let newData = this.getNewPathway(changes)
+    let newData = changes['pathway'].currentValue.mapContent;
     return Builder(newData, null, null, this.mapContainer.nativeElement, PathwayMap.BUILDER_OPTIONS);
   }
 

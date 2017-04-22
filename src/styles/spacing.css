@@ -1,0 +1,20 @@
+.padding-base {
+  padding: 0.8rem;
+}
+
+.padding-base-vertical {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+.padding-base-top {
+  padding-top: 0.8rem;
+}
+
+.padding-base-bottom {
+  padding-bottom: 0.8rem;
+}
+
+.padding-large-top {
+  padding-top: 1.6rem;
+}
