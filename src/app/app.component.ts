@@ -16,7 +16,7 @@ import * as data from './pathway-map/e_coli.iJO1366.central_metabolism.json';
       <app-bar (onPathwayUploaded)="changePathway($event)" (onColorToggled)="toggleColor()"></app-bar>
       <div fxFlex class="padding-large-top" fxLayout="row">
         <div class="padding-base" fxFlex="20">
-          <div class="padding-base-bottom">Node types</div>
+          <p class="secondary-text">Node types</p>
           <pathway-node-stats [pathway]="currentPathway"></pathway-node-stats>
         </div>
         <pathway-map [pathway]="currentPathway" [reactionColor]="currentColor" fxFlex></pathway-map>

@@ -3,6 +3,7 @@
 @import "styles/button.css";
 @import "styles/card.css";
 @import "styles/spacing.css";
+@import "styles/typography.css";
 
 html, body {
   height: 100%;
@@ -15,5 +16,6 @@ html {
 body {
   font-size: 1.4rem;
   margin: 0;
-  background-color: #E0E0E0;
+  color: #000000;
+  background-color: #EAEAEA;
 }

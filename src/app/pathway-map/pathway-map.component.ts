@@ -9,7 +9,7 @@ import { Builder } from 'escher-vis'
       height: 100%;
     }
     .pathway-map .escher-container {
-      background-color: #E0E0E0;
+      background-color: transparent;
     }
   `],
   template: `

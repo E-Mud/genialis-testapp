@@ -1,0 +1,30 @@
+@font-face {
+  font-family: AppFont;
+  font-style: normal;
+  src: url("./fonts/LatoRegular.ttf");
+}
+
+html {
+  font-family: AppFont;
+}
+
+.primary-text {
+  color: #1ABC9C;
+}
+
+.main-text {
+  opacity: 0.87;
+}
+
+.secondary-text {
+  opacity: 0.54;
+}
+
+.disabled-text, .hint-text {
+  opacity: 0.38;
+}
+
+p {
+  margin: 0;
+  padding-bottom: 0.8rem;
+}

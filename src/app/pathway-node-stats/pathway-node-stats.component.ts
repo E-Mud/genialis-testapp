@@ -7,8 +7,8 @@ import { Pathway } from '../pathway/pathway';
   template: `
     <div class="pathway-node-stats card padding-base">
       <div class="padding-base-vertical" fxLayout="row" *ngFor="let nodeType of nodeCountByType">
-        <span fxFlex>{{nodeType.type}}</span>
-        <span>{{nodeType.count}}</span>
+        <span class="main-text" fxFlex>{{nodeType.type}}</span>
+        <span class="main-text primary-text">{{nodeType.count}}</span>
       </div>
     </div>
   `
