@@ -2,19 +2,23 @@ import { Component } from '@angular/core';
 
 import { Pathway } from './pathway/pathway';
 
-import * as data from './pathway-map/e_coli.iJO1366.central_metabolism.json';
-
 @Component({
   selector: 'app-root',
   styles: [`
     .app-component {
       height: 100%;
     }
+    .app-component .no-pathway-msg {
+      font-size: 2rem;
+    }
   `],
   template: `
     <div class="app-component" fxLayout="column">
-      <app-bar (onPathwayUploaded)="changePathway($event)" (onColorToggled)="toggleColor()"></app-bar>
-      <div fxFlex class="padding-large-top" fxLayout="row">
+      <app-bar (onPathwayUploaded)="changePathway($event)" (onColorToggled)="toggleColor()" [showColorToggler]="!!currentPathway"></app-bar>
+      <div fxFlex *ngIf="!currentPathway" fxLayout="row" fxLayoutAlign="center center" class="no-pathway-msg secondary-text">
+        <span>There is no loaded pathway. Click on Upload File to load one.</span>
+      </div>
+      <div fxFlex *ngIf="!!currentPathway" class="padding-large-top" fxLayout="row">
         <div class="padding-base" fxFlex="20">
           <p class="secondary-text">Node types</p>
           <pathway-node-stats [pathway]="currentPathway"></pathway-node-stats>
@@ -25,7 +29,7 @@ import * as data from './pathway-map/e_coli.iJO1366.central_metabolism.json';
   `
 })
 export class AppComponent {
-  currentPathway : Pathway = new Pathway(data);
+  currentPathway : Pathway;
   currentColor : string = 'default';
 
   changePathway(pathway) {

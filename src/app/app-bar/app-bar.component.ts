@@ -1,4 +1,4 @@
-import { Component, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, ViewChild, EventEmitter, Input, Output } from '@angular/core';
 
 import { PathwayFileReader } from '../pathway/pathway-file-reader';
 import { Pathway } from '../pathway/pathway';
@@ -16,7 +16,7 @@ import { Pathway } from '../pathway/pathway';
     <div class="app-bar padding-base-horizontal" fxLayout="row" fxLayoutAlign="start center">
       <span fxFlex></span>
       <input [hidden]="true" type="file" (change)="fileChange($event)" accept=".json" #fileinput hidden/>
-      <div class="icon button" (click)="switchColor()">
+      <div class="icon button" (click)="switchColor()" *ngIf="showColorToggler">
         <i class="material-icons white-text main-text">&#xE891;</i>
       </div>
       <div class="icon button margin-base-left" (click)="uploadFile()">
@@ -29,6 +29,7 @@ export class AppBar {
   @ViewChild('fileinput') fileInput;
   @Output() onPathwayUploaded = new EventEmitter<Pathway>()
   @Output() onColorToggled = new EventEmitter<void>()
+  @Input() showColorToggler : boolean;
 
   fileChange(event) {
     let fileList: FileList = event.target.files;
