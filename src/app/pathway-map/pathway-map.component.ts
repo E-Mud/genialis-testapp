@@ -11,10 +11,14 @@ import { Builder } from 'escher-vis'
     .pathway-map .escher-container {
       background-color: transparent;
     }
+    :host /deep/ .segment {
+      cursor: pointer;
+    }
   `],
   template: `
     <div class="pathway-map" fxLayout="column">
       <div #mapcontainer fxFlex></div>
+      <toast *ngIf="showingMessage" [message]="toastMessage"></toast>
     </div>
   `
 })
@@ -23,7 +27,9 @@ export class PathwayMap {
   @Input() reactionColor;
   @ViewChild('mapcontainer') mapContainer;
 
-  private escherBuilder;
+  private escherBuilder : Builder;
+  private showingMessage : boolean = false;
+  private toastMessage : string;
 
   private static GREEN = '#2ECC71';
   private static BUILDER_OPTIONS = {
@@ -32,7 +38,7 @@ export class PathwayMap {
     use_3d_transform: true,
     enable_editing: false,
     never_ask_before_quit: true,
-    enable_tooltips: false
+    enable_tooltips: true
   };
 
   private pathwayHasChanged(changes : SimpleChanges) {
@@ -40,7 +46,7 @@ export class PathwayMap {
   }
 
   private loadMap(changes : SimpleChanges) {
-    let newData = changes['pathway'].currentValue.mapContent;
+    const newData = changes['pathway'].currentValue.mapContent;
     return Builder(newData, null, null, this.mapContainer.nativeElement, PathwayMap.BUILDER_OPTIONS);
   }
 
@@ -51,11 +57,33 @@ export class PathwayMap {
     })
   }
 
+  private getNodeName(nodeId) {
+    const node = this.pathway.nodes[nodeId];
+    let name = node.node_id;
+
+    if(node.name){
+      name += ` (${node.name})`
+    }
+
+    return name;
+  }
+
+  private showMessage(segment) {
+    const fromNode = this.getNodeName(segment.from_node_id)
+    const toNode = this.getNodeName(segment.to_node_id)
+
+    this.showingMessage = true;
+    this.toastMessage = `From ${fromNode} to ${toNode}`
+  }
+
   ngOnChanges(changes : SimpleChanges) {
     if(this.pathwayHasChanged(changes)){
       this.escherBuilder = this.loadMap(changes)
     }
 
     this.setReactionColor();
+
+    this.escherBuilder.selection.selectAll('.reaction .segment')
+      .on('click', (segment) => this.showMessage(segment));
   }
 }

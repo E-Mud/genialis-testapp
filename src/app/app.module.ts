@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { PathwayMap } from './pathway-map/pathway-map.component';
 import { PathwayNodeStats } from './pathway-node-stats/pathway-node-stats.component';
 import { AppBar } from './app-bar/app-bar.component';
+import { Toast } from './toast/toast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PathwayMap,
+    PathwayNodeStats,
     AppBar,
-    PathwayNodeStats
+    Toast
   ],
   imports: [
     BrowserModule,

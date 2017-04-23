@@ -12,6 +12,10 @@ html {
   color: #1ABC9C;
 }
 
+.white-text {
+  color: #FFFFFF;
+}
+
 .main-text {
   opacity: 0.87;
 }
@@ -22,6 +26,18 @@ html {
 
 .disabled-text, .hint-text {
   opacity: 0.38;
+}
+
+.white-text.main-text {
+  opacity: 1;
+}
+
+.white-text.secondary-text {
+  opacity: 0.84;
+}
+
+.white-text.disabled-text, .white-text.hint-text {
+  opacity: 0.58;
 }
 
 p {

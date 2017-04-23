@@ -15,6 +15,11 @@
   padding-bottom: 0.8rem;
 }
 
+.padding-large-horizontal {
+  padding-right: 1.6rem;
+  padding-left: 1.6rem;
+}
+
 .padding-large-top {
   padding-top: 1.6rem;
 }
