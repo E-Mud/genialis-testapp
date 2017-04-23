@@ -1,5 +1,20 @@
-.button.flat {
+.button {
+  height: 3.6rem;
+  line-height: 3.6rem;
   cursor: pointer;
+}
+
+.button.icon {
+  border-radius: 50%;
+  width: 3.6rem;
+  text-align: center
+}
+
+.button.icon i {
+  line-height: 3.6rem;
+}
+
+.button.flat {
   border: none;
   border-radius: 0.2rem;
   background-color: transparent;

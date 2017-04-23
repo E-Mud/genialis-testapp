@@ -7,20 +7,20 @@ import { Pathway } from '../pathway/pathway';
   selector: 'app-bar',
   styles: [`
     .app-bar {
-      background-color: #FFFFFF;
+      background-color: #1ABC9C;
       height: 4rem;
       box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);
     }
   `],
   template: `
-    <div class="app-bar" fxLayout="row" fxLayoutAlign="start center">
+    <div class="app-bar padding-base-horizontal" fxLayout="row" fxLayoutAlign="start center">
       <span fxFlex></span>
       <input [hidden]="true" type="file" (change)="fileChange($event)" accept=".json" #fileinput hidden/>
-      <div class="flat button" (click)="uploadFile()">
-        UPLOAD
+      <div class="icon button" (click)="switchColor()">
+        <i class="material-icons white-text main-text">&#xE891;</i>
       </div>
-      <div class="flat button" (click)="switchColor()">
-        SWITCH COLOR
+      <div class="icon button margin-base-left" (click)="uploadFile()">
+        <i class="material-icons white-text main-text">&#xE2C6;</i>
       </div>
     </div>
   `

@@ -7,6 +7,11 @@
   padding-bottom: 0.8rem;
 }
 
+.padding-base-horizontal {
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+}
+
 .padding-base-top {
   padding-top: 0.8rem;
 }
@@ -22,4 +27,13 @@
 
 .padding-large-top {
   padding-top: 1.6rem;
+}
+
+.margin-base-horizontal {
+  margin-right: 0.8rem;
+  margin-left: 0.8rem;
+}
+
+.margin-base-left {
+  margin-left: 0.8rem;
 }
