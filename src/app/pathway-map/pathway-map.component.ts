@@ -18,7 +18,7 @@ import { Builder } from 'escher-vis'
   template: `
     <div class="pathway-map" fxLayout="column">
       <div #mapcontainer fxFlex></div>
-      <toast *ngIf="showingMessage" [message]="toastMessage"></toast>
+      <toast *ngIf="showingMessage" [message]="toastMessage" (onCloseClicked)="hideMessage()"></toast>
     </div>
   `
 })
@@ -74,6 +74,10 @@ export class PathwayMap {
 
     this.showingMessage = true;
     this.toastMessage = `From ${fromNode} to ${toNode}`
+  }
+
+  hideMessage() {
+    this.showingMessage = false;
   }
 
   ngOnChanges(changes : SimpleChanges) {

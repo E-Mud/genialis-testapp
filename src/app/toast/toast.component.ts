@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'toast',
@@ -11,13 +11,18 @@ import { Component, Input } from '@angular/core';
       bottom: 6%;
       left: 50%;
     }
+    .toast i {
+      cursor: pointer;
+    }
   `],
   template: `
-    <div class="toast padding-base-vertical padding-large-horizontal">
-      <span class="main-text white-text">{{message}}</span>
+    <div class="toast padding-base-vertical padding-large-horizontal" fxLayout="row" fxLayoutAlign="start center">
+      <span class="main-text white-text" fxFlex>{{message}}</span>
+      <i class="material-icons white-text margin-large-left main-text" (click)="onCloseClicked.emit()">&#xE5CD;</i>
     </div>
   `
 })
 export class Toast {
   @Input() message;
+  @Output() onCloseClicked = new EventEmitter<void>()
 }
