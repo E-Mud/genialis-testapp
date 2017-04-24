@@ -12,6 +12,11 @@ html {
   color: #1ABC9C;
 }
 
+a {
+  color: #1ABC9C;
+  cursor: pointer;
+}
+
 .white-text {
   color: #FFFFFF;
 }
