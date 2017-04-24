@@ -42,6 +42,7 @@ export class AppBar {
   }
 
   uploadFile() {
+    
     this.fileInput.nativeElement.click();
   }
 
