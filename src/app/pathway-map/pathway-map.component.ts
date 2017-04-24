@@ -14,6 +14,15 @@ import { Builder } from 'escher-vis'
     :host /deep/ .segment {
       cursor: pointer;
     }
+    :host /deep/ #button-panel .btn{
+      border-radius: 50%;
+      background: #AAAAAA;
+      border: none;
+    }
+    :host /deep/ #button-panel .btn .glyphicon .hidden{
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+    }
   `],
   template: `
     <div class="pathway-map" fxLayout="column">
