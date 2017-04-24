@@ -28,8 +28,8 @@ export class PathwayMap {
   @ViewChild('mapcontainer') mapContainer;
 
   private escherBuilder : Builder;
-  private showingMessage : boolean = false;
-  private toastMessage : string;
+  showingMessage : boolean = false;
+  toastMessage : string;
 
   private static GREEN = '#2ECC71';
   private static BUILDER_OPTIONS = {

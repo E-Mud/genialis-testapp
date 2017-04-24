@@ -15,7 +15,7 @@ import { Pathway } from '../pathway/pathway';
 })
 export class PathwayNodeStats {
   @Input() pathway : Pathway;
-  private nodeCountByType : object[];
+  nodeCountByType : object[];
 
   ngOnChanges(changes : SimpleChanges) {
     let pathway = changes['pathway'].currentValue;

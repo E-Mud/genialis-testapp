@@ -9,6 +9,6 @@ COPY . /app/
 
 VOLUME /app/node_modules
 
-RUN npm run build --prod
+RUN npm run build -- --prod
 
 CMD ["nginx", "-g", "daemon off;"]
