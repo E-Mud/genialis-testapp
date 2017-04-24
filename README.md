@@ -1,28 +1,42 @@
 # GenialisApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+## Run without docker
 
-## Development server
+The app uses `angular-cli` fr building and serving in development. Due to that, a node version of 6.9 or higher should be installed in order to run the app.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Development
 
-## Code scaffolding
+```
+npm install
+npm start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+Then navigate to http://localhost:8080 to use the app.
 
-## Build
+### Production
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+```
+npm install
+npm run build -- --prod
+```
 
-## Running unit tests
+A production version will be now available at `dist` folder. You can use any web server to serve the files from that folder.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Run with Docker and Docker-Compose
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+The app uses a version 2 docker-compose configuration, so you'd need to have Docker-Compose v1.6.0+ and Docker Engine v1.10.0+.
 
-## Further help
+### Development
+```
+docker-compose up --build development
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Then navigate to http://localhost:8080 to use the app.
+
+### Production
+```
+docker-compose up --build production
+```
+
+Then navigate to http://localhost:80 to use the app.
